@@ -355,7 +355,7 @@ form.addEventListener('submit', (e) => {
 });
 
 
-// Form inline validation - exceeds expectations work
+// Form inline validation
 $(name).on('input', function () {
     if (name.value.length > 0) {
     $(nameError).fadeOut();
