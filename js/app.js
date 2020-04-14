@@ -64,7 +64,7 @@ colorSelection.appendChild(option);
 option.setAttribute('selected', 'selected');
 }
 
-//declares functions to hide the colors and display "select a theme"
+//declares functions to hide the colors and display and calls it
 hideColors();
 selectTheme();
 
@@ -73,11 +73,11 @@ function hideSelectTheme() {
     $('#design option').eq(0).attr('disabled', 'hidden', true).hide();
 }
 
-// Get the color dropdown menu and hide it initially
+// Get the color dropdown menu its hidden initially 
 const colorSelectionDiv = document.getElementById('colors-js-puns');
 $(colorSelectionDiv).hide();
 
-// this addEventListern hides or shows color selection options based on the design option chosen
+// this addEventListern hides or shows color selection options on the user selection
 design.addEventListener('change', (e) => {
     hideSelectTheme()
     if (e.target.value === 'js puns') {
@@ -109,9 +109,8 @@ design.addEventListener('change', (e) => {
 // Append the total price to the activities section
 $(activities).append(totalPriceDiv);
 
-// When checkboxes are clicked their day and time data is checked against other events
-// conflicting events are then disabled
-// The cost of each selected event is caluclated and displayed in the total price line
+// checks for any other time conflicts 
+// calculates the total price
 $(activityCheckboxes).change(function (event) {
 
     for (let i = 0; i < activityCheckboxes.length; i++) {
@@ -140,7 +139,7 @@ $(activityCheckboxes).change(function (event) {
   
 
 
-// Functions for hiding all payment options
+// Hides payment info
 function hideSelectPayment() {
     $('#payment option').eq(0).attr('disabled', 'hidden', true).hide();
 }
@@ -161,7 +160,7 @@ hideBitcoin();
 // Have the credit card payment option selected at page load
 $('#payment').prop('selectedIndex', 1);
 
-// Reveal the corresponding payment options based on the selecion from payment dropdown
+// Reveal the corresponding payment options based on the selecion
 payment.addEventListener('change', (e) => {
     hideSelectPayment();
     if (e.target.value === 'credit card') {
