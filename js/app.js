@@ -96,3 +96,7 @@ function selectTheme() {
             hideColors();
         }       
     });
+
+
+    // Appended total price to the activity area
+    
