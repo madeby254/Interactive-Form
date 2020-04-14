@@ -39,7 +39,7 @@ role.addEventListener ('change', (event) => {
 // Hides all the other options
 
 function hideColors() {
-    $('#color').children().hide();
+    `$('#color').children().hide();`
 }
 
 // This displays the select a theme option in the color dropdown
@@ -48,10 +48,51 @@ function selectTheme() {
     let option = document.createElement("option");
     option.value = 'selecttheme';
     option.text = 'Choose on theme to proceed';
-    colorSelection.appendChild(option);
+    colorTab.appendChild(option);
     option.setAttribute('selected', 'selected');
     }
 
     // Called both functions here 
     hideColors()
     selectTheme()
+
+    // I hide the select theme from the design menu
+
+    function hideSelectTheme() {
+        $('#design option').eq(0).attr('disabled', 'hidden', true).hide();
+    }
+
+    // Hide the color dropdown initially 
+
+    const colorTabDiv = document.getElementById('colors-js-puns');
+    `$(colorTabDiv).hide();`
+
+    // Event listener to hide or show color seclection based on options selected by the user
+
+    designTab.addEventListener('change', (e) => {
+        hideSelectTheme()
+        if (e.target.value === 'js puns') {
+            $(colorTabDiv).show();
+            hideColors();
+            $('#color option[value="cornflowerblue"]').show();
+            $('#color option[value="darkslategrey"]').show();
+            $('#color option[value="gold"]').show();
+            $('#color').prop('selectedIndex', 0);
+        } else if (e.target.value === 'heart js') {
+            $(colorTabDiv).show();
+            hideColors();
+            $('#color option[value="tomato"]').show();
+            $('#color option[value="steelblue"]').show();
+            $('#color option[value="dimgrey"]').show();
+            $('#color').prop('selectedIndex', 3);
+        } else {
+            $(colorTabDiv).hide();
+            $('#color option[value="tomato"]').removeAttr('selected');
+            $('#color option[value="steelblue"]').removeAttr('selected');
+            $('#color option[value="dimgrey"]').removeAttr('selected');
+            $('#color option[value="cornflowerblue"]').removeAttr('selected');
+            $('#color option[value="darkslategrey"]').removeAttr('selected');
+            $('#color option[value="gold"]').removeAttr('selected');
+            hideColors();
+        }       
+    });
