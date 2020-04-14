@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register for Full Stack Conf</title>
-	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -21,9 +22,12 @@
         
         <label for="name">Name:</label>
         <input type="text" id="name" name="user-name">
+        <span class='name-error' style='color:red;'>Please enter your name</span>
         
         <label for="mail">Email:</label>
         <input type="email" id="mail" name="user-email">
+        <span class='email-error' style='color:red;'>Please enter your email</span>
+        <span class='not-email-error' style='color:red;'>Please enter a valid email address</span>
         
         <label for="title">Job Role</label>
         <select id="title" name="user-title">
@@ -33,9 +37,10 @@
           <option value="designer">Designer</option>          
           <option value="student">Student</option>
           <option value="other">Other</option>  
-        </select>           
+        </select>
+        <input type="text" id="other-title" name="job_role_other" placeholder="Your Job Role">         
       </fieldset>
-      
+
       <fieldset class="shirt">
         <legend>T-Shirt Info</legend>
         
@@ -53,7 +58,7 @@
           <div>
             <label for="design">Design:</label>
             <select id="design" name="user-design">
-              <option>Select Theme</option>
+              <option value="selecttheme">Select Theme</option>
               <option value="js puns">Theme - JS Puns</option>
               <option value="heart js">Theme - I &#9829; JS</option>
             </select>
@@ -79,31 +84,32 @@
             <input type="checkbox" name="all" data-cost="200"> Main Conference — $200
           </label>
           <label>
-            <input type="checkbox" name="js-frameworks" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
+            <input type="checkbox" id="js-frameworks" name="js-frameworks" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
             JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100
           </label>
           <label>
-            <input type="checkbox" name="js-libs" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
+            <input type="checkbox" id="js-libs" name="js-libs" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
             JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100
           </label>
           <label>
-            <input type="checkbox" name="express" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
+            <input type="checkbox" id="express" name="express" data-day-and-time="Tuesday 9am-12pm" data-cost="100"> 
             Express Workshop — Tuesday 9am-12pm, $100
           </label>
           <label>
-            <input type="checkbox" name="node" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
+            <input type="checkbox" id="node" name="node" data-day-and-time="Tuesday 1pm-4pm" data-cost="100"> 
             Node.js Workshop — Tuesday 1pm-4pm, $100
           </label>          
           <label>
-            <input type="checkbox" name="build-tools" data-day-and-time="Wednesday 9am-12pm" data-cost="100"> 
+            <input type="checkbox" id="build-tools" name="build-tools" data-day-and-time="Wednesday 9am-12pm" data-cost="100"> 
             Build tools Workshop — Wednesday 9am-12pm, $100
           </label>
           <label>
-            <input type="checkbox" name="npm" data-day-and-time="Wednesday 1pm-4pm" data-cost="100"> 
+            <input type="checkbox" id="npm" name="npm" data-day-and-time="Wednesday 1pm-4pm" data-cost="100"> 
             npm Workshop — Wednesday 1pm-4pm, $100
           </label>
                   	
       </fieldset>
+      <span class='activities-error' style='color:red;'>Please select at least one activity</span>
       <fieldset>
         <legend>Payment Info</legend>
 
@@ -119,18 +125,26 @@
 
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
-        	  <input id="cc-num" name="user-cc-num" type="text">
+            <input id="cc-num" name="user-cc-num" type="text">
+            <span class='cc-error' style='color:red;'>Please enter your credit card number.</span>
+            <span class='cc-error-add' style='color:red;'> A number with 13 to 16 digits is required.</span>
           </div>
+          
 
           <div class="col-3 col">
             <label for="zip">Zip Code:</label>
             <input id="zip" name="user-zip" type="text"> 
+            <span class='zipcode-error' style='color:red;'>Please enter your billing zipcode.</span>
           </div>
+          
 
           <div class="col-3 col">
             <label for="cvv">CVV:</label>
             <input id="cvv" name="user-cvv" type="text"> 
+            <span class='cvv-error' style='color:red;'>Please enter your CVV.</span>
           </div>
+          
+
 
           <label for="exp-month">Expiration Date:</label>
           <select id="exp-month" name="user-exp-month">
@@ -149,13 +163,14 @@
           </select>
           <label for="exp-year">Expiration Year:</label>
           <select id="exp-year" name="user-exp-year">
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>        		          
-          </select> 	                  	         
+            <option value="2016">2020</option>
+            <option value="2017">2021</option>
+            <option value="2018">2022</option>
+            <option value="2019">2023</option>
+            <option value="2020">2024</option>        		          
+          </select>
         </div>
+        
 
         <div id="paypal" class="paypal">
         	<p>If you selected the PayPal option we'll take you to Paypal's site to set up your billing information, when you click “Register” below.</p>
@@ -171,6 +186,7 @@
       
     </form>
 
+  </div>
   </div>
   <script src="js/app.js"></script>
 </body>
