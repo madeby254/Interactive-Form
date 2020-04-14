@@ -5,29 +5,25 @@ const email = document.querySelector("#mail");
 const creditcard = document.querySelector("#cc-num");
 const zipcode = document.querySelector("#zip");
 const cvv = document.querySelector("#cvv");
-
 // Dropdown selections
-
 const title = document.getElementById("title");
 const otherTitle = document.getElementById("other-title");
-
 // Const for the design and color selection dropdowns
 const design = document.getElementById('design');
 const colorSelection = document.getElementById('color');
-
-// Const for storing the activities section and the total price div and calculation
+// Const for storing the activities section and the total price 
 const activities = document.getElementsByClassName("activities");
 const activityCheckboxes = $('.activities input:checkbox');
 let totalPrice = 0;
 const totalPriceDiv = document.createElement('div');
 totalPriceDiv.className = "total-price";
 let textContent = totalPriceDiv.textContent = 'Total Price: $' + totalPrice + '.00';
-
+// Const for payments
 const payment = document.getElementById('payment');
 const creditCardDiv = document.getElementById('credit-card');
 const paypalDiv = document.getElementById('paypal');
 const bitcoinDiv = document.getElementById('bitcoin');
-
+// Error messages store here
 const nameError = document.getElementsByClassName('name-error')
 const emailError = document.getElementsByClassName('email-error');
 const notEmailError = document.getElementsByClassName('not-email-error');
@@ -45,7 +41,7 @@ window.onload = function() {
     otherTitle.style.display = 'none';
 };
 
-// Shows the other title text box when 'other' has been selected from the title menu
+// Shows the other title text box when other has been selected f
 title.addEventListener('change', (e) => {
     if (e.target.value === 'other') {
         otherTitle.style.display = 'block';
@@ -59,7 +55,7 @@ function hideColors() {
     $('#color').children().hide();
 }
 
-// Display the "select a theme" option in the color dropdown
+// Display select theme
 function selectTheme() {
 let option = document.createElement("option");
 option.value = 'selecttheme';
