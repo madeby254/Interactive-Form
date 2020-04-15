@@ -1,6 +1,8 @@
 
 
 
+
+
 // Const for capturing the fields
 const form = document.querySelector("form");
 const name = document.querySelector("#name");
